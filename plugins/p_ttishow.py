@@ -53,13 +53,13 @@ async def save_group(bot, message):
                         await (temp.MELCOW['welcome']).delete()
                     except:
                         pass
-                temp.MELCOW['welcome'] = await message.reply_video(
-                video="https://telegra.ph/file/03691465baa774e46506d.mp4",                                               
-                                                 caption=f'<b>ʜᴇʏ, {u.mention} 👋🏻\nᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴏᴜʀ ɢʀᴏᴜᴘ {message.chat.title}\n\nFind Any Media ! if you need any movie then then enter the movie name + years. 👍\n\nGuys Enter Only movie Or Webseries Name like This 👇\nPushpa ✅\nPushpa 2021 ✅\nPushpa in Hindi ❌\nLucifer ✅\nLucifer S01 ✅\nLucifer all season ❌</b>',
-                                                 reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('🔥  ↭ Main Channel ↭  🔥', url='http://t.me/real_MoviesAdda2') ],
-                                                                                      [ InlineKeyboardButton('🔥  ↭ DEV Channel ↭  🔥', url='http://t.me/LazyDeveloper') ]
-                                                                                    ] )
-                )
+                    if WELCOM_PIC:
+                    temp.MELCOW['welcome'] = await message.reply_photo(photo=WELCOM_PIC, caption=WELCOM_TEXT.format(user=u.mention, chat=message.chat.title),
+                                                                       reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🇦🇺 ᴇɴɢ", callback_data="engwlc"),InlineKeyboardButton("🇮🇳 ʜɴᴅ", callback_data="hndwlc"),InlineKeyboardButton("🇸🇦 ᴀʀʙ", callback_data="arbwlc")],[InlineKeyboardButton("📍 ʀᴜʟᴇꜱ 📍", url="http://t.me/DrMasterTGbot?start=regole_-1001397638909")]]))
+                else:
+                    temp.MELCOW['welcome'] = await message.reply_text(text=WELCOM_TEXT.format(user=u.mention, chat=message.chat.title),
+                                                                      reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🇦🇺 ᴇɴɢ", callback_data="engwlc"),InlineKeyboardButton("🇮🇳 ʜɴᴅ", callback_data="hndwlc"),InlineKeyboardButton("🇸🇦 ᴀʀʙ", callback_data="arbwlc")],[InlineKeyboardButton("📍 ʀᴜʟᴇꜱ 📍", url="http://t.me/DrMasterTGbot?start=regole_-1001397638909")]]))
+                
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
 async def leave_a_chat(bot, message):
