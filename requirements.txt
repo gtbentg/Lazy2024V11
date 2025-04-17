@@ -2,7 +2,7 @@ git+https://github.com/Joelkb/cinemagoer
 Pyrogram==2.0.106
 tgcrypto
 pymongo[srv]==3.12.3
-motor==2.5.1
+motor==3.2.0
 marshmallow==3.14.1
 umongo==3.0.1
 requests
